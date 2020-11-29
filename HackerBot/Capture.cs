@@ -45,6 +45,11 @@ namespace HackerBot
             myRect.Width = rct.Right - rct.Left;
             myRect.Height = rct.Bottom - rct.Top;
 
+
+            if(rct.Top<0)
+            {
+                ShowWindow(hwnd, 1);
+            }
             MoveWindow(hwnd, 0, 0, 1560, 885, true);
 
             _bmp = new Bitmap(1560, 885, PixelFormat.Format32bppArgb);
@@ -79,7 +84,10 @@ namespace HackerBot
         static extern bool GetWindowRect(IntPtr hWnd, out RECT lpRect);
 
         [DllImport("user32.dll", SetLastError = true)]
-        internal static extern bool MoveWindow(IntPtr hWnd, int X, int Y, int nWidth, int nHeight, bool bRepaint);
+        static extern bool MoveWindow(IntPtr hWnd, int X, int Y, int nWidth, int nHeight, bool bRepaint);
+
+        [DllImport("user32.dll")]
+        static extern bool ShowWindow(IntPtr hwnd, int nCmdShow);
 
         [StructLayout(LayoutKind.Sequential)]
         public struct RECT
