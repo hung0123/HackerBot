@@ -21,6 +21,8 @@ namespace HackerBot
         //private string ori = "";
         private bool _stopFishing = false;
         private int _cnt = 0;
+        private int _fishingCount = 0;//紀錄釣魚成功幾次
+        private int _fishingTarget = 0;//目標要釣幾條魚
         public Form1()
         {
             InitializeComponent();
@@ -90,6 +92,7 @@ namespace HackerBot
             try
             {
                 _stopFishing = false;
+                _fishingTarget = int.Parse(textBox3.Text);
                 Thread thread = new Thread(MyBackgroundTask);
                 thread.Start();
             }
@@ -119,11 +122,15 @@ namespace HackerBot
                 {
                     if (Accuracy_Tick())
                     {
+                        _fishingCount++;
+                        if(_fishingCount>=_fishingTarget)
+                        {
+                            _stopFishing = true;
+                        }
                         break;
                     }
                     Thread.Sleep(300);
                     count++;
-
                 }
                 Thread.Sleep(5000);
             }
@@ -133,13 +140,13 @@ namespace HackerBot
 
         private void pictureBox3_Paint(object sender, PaintEventArgs e)
         {
-            //Capture capture = new Capture();
-            //var bitmap = capture.CaptureScreen(new Point(1265, 585), new Size(10, 10));
-            //var c = capture.GetPixel(bitmap);
-            //rec += c.ToArgb().ToString() + "/";
+            Capture capture = new Capture();
+            var bitmap = capture.CaptureScreen(new Point(1280, 590), new Size(100, 100));
+            var c = capture.GetPixel(bitmap);
+            rec += c.ToArgb().ToString() + "/";
 
 
-            //e.Graphics.DrawImage(bitmap, new PointF(0, 0));
+            e.Graphics.DrawImage(bitmap, new PointF(0, 0));
         }
 
         private bool Accuracy_Tick()
@@ -147,7 +154,7 @@ namespace HackerBot
             using (Capture capture = new Capture())
             {
 
-                var bitmap = capture.CaptureScreen(new Point(1265, 585), new Size(1, 1));
+                var bitmap = capture.CaptureScreen(new Point(1280, 590), new Size(1, 1));
                 var c = capture.GetPixel(bitmap);
 
                 int colorFlag = 230;//判斷的顏色
