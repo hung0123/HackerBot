@@ -124,7 +124,7 @@ namespace HackerBot
                 int count = 0;
                 using (Capture capture = new Capture())
                 {
-                    //capture.LeftClick(new Point(1274, 617));//點擊動作
+                    capture.LeftClick(new Point(1274, 617));//點擊動作
                 }
 
                 Thread.Sleep(3500);
