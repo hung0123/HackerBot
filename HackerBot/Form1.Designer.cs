@@ -41,9 +41,9 @@
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.button3 = new System.Windows.Forms.Button();
+            this.btnStopFish = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.txtFishTarget = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -125,7 +125,7 @@
             // 
             this.pictureBox1.Location = new System.Drawing.Point(12, 100);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(274, 173);
+            this.pictureBox1.Size = new System.Drawing.Size(164, 156);
             this.pictureBox1.TabIndex = 9;
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Paint += new System.Windows.Forms.PaintEventHandler(this.pictureBox1_Paint);
@@ -143,9 +143,9 @@
             // 
             // pictureBox3
             // 
-            this.pictureBox3.Location = new System.Drawing.Point(314, 100);
+            this.pictureBox3.Location = new System.Drawing.Point(222, 100);
             this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(223, 173);
+            this.pictureBox3.Size = new System.Drawing.Size(183, 156);
             this.pictureBox3.TabIndex = 11;
             this.pictureBox3.TabStop = false;
             this.pictureBox3.Paint += new System.Windows.Forms.PaintEventHandler(this.pictureBox3_Paint);
@@ -168,15 +168,16 @@
             this.label4.TabIndex = 13;
             this.label4.Text = "label4";
             // 
-            // button3
+            // btnStopFish
             // 
-            this.button3.Location = new System.Drawing.Point(793, 114);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(167, 179);
-            this.button3.TabIndex = 14;
-            this.button3.Text = "暫停釣魚";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.btnStopFish.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnStopFish.Location = new System.Drawing.Point(793, 114);
+            this.btnStopFish.Name = "btnStopFish";
+            this.btnStopFish.Size = new System.Drawing.Size(167, 179);
+            this.btnStopFish.TabIndex = 14;
+            this.btnStopFish.Text = "暫停釣魚";
+            this.btnStopFish.UseVisualStyleBackColor = true;
+            this.btnStopFish.Click += new System.EventHandler(this.btnStopFish_Click);
             // 
             // label5
             // 
@@ -187,13 +188,13 @@
             this.label5.TabIndex = 15;
             this.label5.Text = "label5";
             // 
-            // textBox3
+            // txtFishTarget
             // 
-            this.textBox3.Location = new System.Drawing.Point(671, 302);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(96, 22);
-            this.textBox3.TabIndex = 16;
-            this.textBox3.Text = "100";
+            this.txtFishTarget.Location = new System.Drawing.Point(671, 302);
+            this.txtFishTarget.Name = "txtFishTarget";
+            this.txtFishTarget.Size = new System.Drawing.Size(96, 22);
+            this.txtFishTarget.TabIndex = 16;
+            this.txtFishTarget.Text = "100";
             // 
             // label6
             // 
@@ -208,11 +209,11 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(993, 371);
+            this.ClientSize = new System.Drawing.Size(993, 465);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.txtFishTarget);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.button3);
+            this.Controls.Add(this.btnStopFish);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.pictureBox3);
@@ -227,7 +228,8 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button1);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Ro新世代工具";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form1_FormClosed);
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -251,9 +253,9 @@
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btnStopFish;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox txtFishTarget;
         private System.Windows.Forms.Label label6;
     }
 }
